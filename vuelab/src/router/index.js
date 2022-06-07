@@ -30,11 +30,26 @@ const routes = [
     component: function () {
         return import(/* webpackChunkName: "about" */ '../views/Practice/counter.vue')
       }
-  },{
+  },
+  {
     path: '/search',
     name: 'search',
     component: function () {
         return import(/* webpackChunkName: "about" */ '../views/Practice/search.vue')
+      }
+  },
+  {
+    path: '/filterDemo',
+    name: 'filterDemo',
+    component: function () {
+        return import(/* webpackChunkName: "about" */ '../views/Practice/filterDemo.vue')
+      }
+  },
+  {
+    path: '/listDemo',
+    name: 'listDemo',
+    component: function () {
+        return import(/* webpackChunkName: "about" */ '../views/Practice/ListDemo.vue')
       }
   },
 ]

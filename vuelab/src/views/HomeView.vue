@@ -16,3 +16,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+    img{
+        margin-top:40px;
+    }
+</style>

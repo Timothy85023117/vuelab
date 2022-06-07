@@ -6,9 +6,9 @@
     <div>
         <input type="text" v-model="searchVal">
     </div>
-    <p>目前有12筆資料</p>
+    <p>目前有{{findItem.length }}筆資料</p>
     <div>
-        <li v-for="item in filteredList()" :key="item">
+        <li v-for="item in findItem" :key="item">
             {{item}}
         </li>
     </div>
@@ -19,20 +19,21 @@
 <script>
 import { ref, computed } from "vue";
 export default {
-  setup() {
-      const searchVal = ref("");
-    const itemList = ref(['Ada','Aaliyah','Adela','Basia','Bonnie','Brook','Candice','Celeste','Cheryl','Ella','Eudora','Gemma']);
-    function filteredList() {
-  return this.itemList.filter((item) =>
-    item.toLowerCase().includes(this.searchVal.value.toLowerCase())
-  );
-}
-    return {filteredList,
-        searchVal,
-      itemList
+  name: "ProjectThree",
+  data() {
+    return {
+      searchVal: "",
     };
-
   },
+  mounted() {
+      console.log(this.$store.state.itemList)
+  },
+  computed: {
+    findItem() {
+      return this.$store.state.itemList.filter((item) =>
+      item.toLowerCase().includes(this.searchVal.toLowerCase()))
+    }
+  }
 };
 </script>
 <style scoped>

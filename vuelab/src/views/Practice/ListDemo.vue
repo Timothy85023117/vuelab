@@ -1,9 +1,13 @@
 <template>
-<div class="practice">
-    <h1>List Demo</h1>
-</div>
-<div class="container">
-    <li v-for="(item, index) in itemList" :key="item" @click="clickAlert(item, index)">{{item}}</li>
+<div>
+    <div class="practice">
+        <h1>List Demo</h1>
+    </div>
+    <div class="container">
+        <li v-for="(item, index) in itemList" :key="item" @click="clickAlert(item, index)">
+            {{item}}
+        </li>
+    </div>
 </div>
 
 </template>

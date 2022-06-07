@@ -1,23 +1,24 @@
 <template>
-<div class="practice">
-    <h1>Search</h1>
-</div>
-<div class="container">
-    <div>
-        <input type="text" v-model="searchVal">
+<div>
+    <div class="practice">
+        <h1>Search</h1>
     </div>
-    <p>目前有{{findItem.length }}筆資料</p>
-    <div>
-        <li v-for="item in findItem" :key="item">
-            {{item}}
-        </li>
+    <div class="container">
+        <div>
+            <input type="text" v-model="searchVal">
+        </div>
+        <p>目前有{{findItem.length }}筆資料</p>
+        <div>
+            <li v-for="item in findItem" :key="item">
+                {{item}}
+            </li>
+        </div>
     </div>
 </div>
 
 </template>
 
 <script>
-import { ref, computed } from "vue";
 export default {
   name: "ProjectThree",
   data() {

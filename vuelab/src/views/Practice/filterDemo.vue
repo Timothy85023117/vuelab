@@ -1,12 +1,14 @@
 <template>
-<div class="practice">
-    <h1>Filter Demo</h1>
-</div>
-<div class="container">
-    <div>
-        <input type="number" v-model="inputVal">
+<div>
+    <div class="practice">
+        <h1>Filter Demo</h1>
     </div>
-    <p>轉換後的結果 => {{ filterNumber }}</p>
+    <div class="container">
+        <div>
+            <input type="number" v-model="inputVal">
+        </div>
+        <p>轉換後的結果 => {{ filterNumber }}</p>
+    </div>
 </div>
 
 </template>

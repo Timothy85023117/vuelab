@@ -1,16 +1,18 @@
 <template>
-<Menu/>
+<div>
+    <myMenu/>
   <router-view/>
+</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Menu from '@/components/menu.vue'
+import myMenu from '@/components/menu.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    Menu
+    myMenu
   }
 }
 </script>

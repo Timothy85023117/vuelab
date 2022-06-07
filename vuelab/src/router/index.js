@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
@@ -21,14 +22,14 @@ const routes = [
     path: '/practice',
     name: 'practice',
     component: function () {
-        return import(/* webpackChunkName: "about" */ '../views/Practice/Practice.vue')
+        return import(/* webpackChunkName: "about" */ '../views/Practice/PracticeMain.vue')
       }
   },
   {
     path: '/counter',
     name: 'counter',
     component: function () {
-        return import(/* webpackChunkName: "about" */ '../views/Practice/counter.vue')
+        return import(/* webpackChunkName: "about" */ '../views/Practice/counterPage.vue')
       }
   },
   {
@@ -50,6 +51,20 @@ const routes = [
     name: 'listDemo',
     component: function () {
         return import(/* webpackChunkName: "about" */ '../views/Practice/ListDemo.vue')
+      }
+  },
+  {
+    path: '/modalDemo',
+    name: 'modalDemo',
+    component: function () {
+        return import(/* webpackChunkName: "about" */ '../views/Practice/ModalDemo.vue')
+      }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: function () {
+        return import(/* webpackChunkName: "about" */ '../views/Practice/Registers.vue')
       }
   },
 ]

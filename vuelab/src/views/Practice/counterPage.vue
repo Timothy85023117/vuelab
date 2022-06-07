@@ -1,12 +1,14 @@
 <template>
-<div class="practice">
-    <h1>Counter</h1>
-  </div>
-<div>Counter: {{ count }}</div>
-  <div class="btn">
-    <button @click="dec">-1</button>
-    <button @click="inc">+1</button>
-  </div>
+<div>
+    <div class="practice">
+        <h1>Counter</h1>
+      </div>
+    <div>Counter: {{ count }}</div>
+      <div class="btn">
+        <button @click="dec">-1</button>
+        <button @click="inc">+1</button>
+      </div>
+</div>
 
 </template>
 

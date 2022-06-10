@@ -9,8 +9,6 @@
         </div>
     </div>
     <div id="modal" v-show="isOpen">
-        <div>Demo Modal</div>
-        <div class="line"> </div>
         <Popup>
             <template #title>
                 {{ title }}
@@ -26,25 +24,29 @@
 <script>
 import Popup from '@/components/PopupModal.vue'
 export default {
-    name: "ProjectThree",
-    components:{
-        Popup
-    },
-    data(){
-        return {
-            title: "Wow, You're reading this text in a modal",
-            btnText:'Close PopupModal',
-            isOpen: false
-        }
-    },
-    methods:{
-        OpenModal(){
-            this.isOpen = true
-        },
-        CloseModal(){
-            this.isOpen = false
-        }
+  name: 'ProjectThree',
+  components: {
+    Popup
+  },
+  data () {
+    return {
+      title: "Wow, You're reading this text in a modal",
+      btnText: 'Close PopupModal'
     }
+  },
+  computed: {
+    isOpen () {
+      return this.$store.state.ModalDemo.isOpen
+    }
+  },
+  methods: {
+    OpenModal () {
+      this.$store.commit('changeOpen')
+    },
+    CloseModal () {
+      this.isOpen = false
+    }
+  }
 }
 </script>
 
@@ -62,13 +64,9 @@ export default {
     position: fixed;
     bottom:50%;
     left:50%;
-    margin-left:-290px; 
+    margin-left:-290px;
     margin-bottom:-120px;
     transform: 1s;
-}
-.line{
-    margin:12px 0;
-    border-bottom:solid silver 0.5px ;
 }
 .background-black{
     width:100%;

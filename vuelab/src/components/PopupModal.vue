@@ -1,15 +1,48 @@
 <template>
-    <card id="modal" v-show="isOpen">
+    <card id="modal">
+        <div>Demo Modal</div>
+        <div class="line"> </div>
         <p>
             <slot name="title"></slot>
         </p>
-         <button class="btn">
+        <p>
+            <slot name="name"></slot>
+        </p>
+        <p>
+            <slot name="amount"></slot>
+        </p>
+        <p>
+            <slot name="width"></slot>
+        </p>
+        <p>
+            <slot name="height"></slot>
+        </p>
+        <p>
+            <slot name="weight"></slot>
+        </p>
+        <div class="line"> </div>
+         <button class="btn" @click="CloseModal">
             <slot name="button"></slot>
         </button>
     </card>
 </template>
 
+<script>
+export default {
+  methods: {
+    CloseModal () {
+      this.$store.commit('changeClose')
+    }
+  }
+}
+</script>
+
 <style scoped>
+
+.line{
+    margin:12px 0;
+    border-bottom:solid silver 0.5px ;
+}
 :hover.btn{
     background-color:rgb(66, 110, 230);
 }
@@ -24,4 +57,3 @@
     cursor:pointer;
 }
 </style>
-

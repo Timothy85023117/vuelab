@@ -10,6 +10,11 @@
         <li><router-link to="/filterDemo">FilterDemo</router-link></li>
         <li><router-link to="/listDemo">ListDemo</router-link></li>
         <li><router-link to="/modalDemo">ModalDemo</router-link></li>
+        <li><router-link to="/register">Register</router-link></li>
+        <li><router-link to="/ajaxDemo">AjaxDemo</router-link></li>
+        <li><router-link to="/refDemo">RefDemo</router-link></li>
+        <li><router-link to="/carouselDemo">CarouselDemo</router-link></li>
+        <li><router-link to="/counterWithState">CounterWithState</router-link></li>
       </ul>
   </div>
 </template>

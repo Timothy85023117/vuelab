@@ -13,21 +13,18 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 export default {
-  setup () {
-    const count = ref(0)
-    const inc = function () {
-      this.count++
+  computed: {
+    count () {
+      return this.$store.state.count
     }
-    const dec = function () {
-      this.count -= 1
-    }
-
-    return {
-      dec,
-      inc,
-      count
+  },
+  methods: {
+    dec () {
+      this.$store.commit('dec')
+    },
+    inc () {
+      this.$store.commit('inc')
     }
   }
 }

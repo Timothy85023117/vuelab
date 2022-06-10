@@ -15,26 +15,26 @@
 
 <script>
 export default {
-  name: "ProjectThree",
-  data() {
+  name: 'ProjectThree',
+  data () {
     return {
-      inputVal: "",
-    };
+      inputVal: ''
+    }
   },
-  mounted() {
-      console.log(this.$store.state.itemList)
+  mounted () {
+    console.log(this.$store.state.itemList)
   },
   computed: {
-    filterNumber() {if(this.inputVal === ""){
-          return ""
-      }
-      else{
-          console.log(this.inputVal)
-          return this.inputVal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+    filterNumber () {
+      if (this.inputVal === '') {
+        return ''
+      } else {
+        console.log(this.inputVal)
+        return this.inputVal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
       }
     }
   }
-};
+}
 </script>
 <style scoped>
 input {

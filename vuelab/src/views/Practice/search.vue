@@ -20,22 +20,22 @@
 
 <script>
 export default {
-  name: "ProjectThree",
-  data() {
+  name: 'ProjectThree',
+  data () {
     return {
-      searchVal: "",
-    };
+      searchVal: ''
+    }
   },
-  mounted() {
-      console.log(this.$store.state.itemList)
+  mounted () {
+    console.log(this.$store.state.itemList)
   },
   computed: {
-    findItem() {
+    findItem () {
       return this.$store.state.itemList.filter((item) =>
-      item.toLowerCase().includes(this.searchVal.toLowerCase()))
+        item.toLowerCase().includes(this.searchVal.toLowerCase()))
     }
   }
-};
+}
 </script>
 <style scoped>
 input {

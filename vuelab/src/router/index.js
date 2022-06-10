@@ -64,7 +64,35 @@ const routes = [
     path: '/register',
     name: 'register',
     component: function () {
-        return import(/* webpackChunkName: "about" */ '../views/Practice/Registers.vue')
+        return import(/* webpackChunkName: "about" */ '../views/Practice/RegisterPage.vue')
+      }
+  },
+  {
+    path: '/ajaxDemo',
+    name: 'ajaxDemo',
+    component: function () {
+        return import(/* webpackChunkName: "about" */ '../views/Practice/AjaxDemo.vue')
+      }
+  },
+  {
+    path: '/refDemo',
+    name: 'refDemo',
+    component: function () {
+        return import(/* webpackChunkName: "about" */ '../views/Practice/RefDemo.vue')
+      }
+  },
+  {
+    path: '/carouselDemo',
+    name: 'carouselDemo',
+    component: function () {
+        return import(/* webpackChunkName: "about" */ '../views/Practice/CarouselDemo.vue')
+      }
+  },
+  {
+    path: '/counterWithState',
+    name: 'counterWithState',
+    component: function () {
+        return import(/* webpackChunkName: "about" */ '../views/Practice/CounterWithState.vue')
       }
   },
 ]

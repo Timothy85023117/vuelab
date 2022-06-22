@@ -5,8 +5,17 @@
     </div>
     <div class="container">
       <div class="carousel owl-carousel owl-theme" ref="owl">
-          <div v-for="item in imgList" :key="item">
-              <img :src="item.prodImg" alt="" style="height:200px; object-fit: cover;">
+          <div>
+              <img :src="imgList" alt="" >
+          </div>
+          <div>
+              <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg" alt="">
+          </div>
+          <div>
+              <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg" alt="">
+          </div>
+          <div>
+              <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg" alt="">
           </div>
       </div>
     </div>
@@ -22,9 +31,9 @@ export default {
           imgList:[]
       }
   },
-  created () {
+  mounted () {
       this.getAssetsList()
-        // this.move()
+    this.move()
   },
   methods: {
     move () {
@@ -39,18 +48,8 @@ export default {
     },
     async getAssetsList () {
       const { data } = await axios.get('/product/list')
-      this.imgList = data.data
-      this.$nextTick(() => {
-          $('.carousel').owlCarousel({
-        items: 3,
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 1000,
-        autoplayHoverPause: true
-      })
-      })
-      console.log(this.imgList)
+      this.imgList = data.data[0].prodImg
+      console.log(data)
     },
   }
 }

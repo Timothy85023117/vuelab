@@ -15,11 +15,6 @@
     </div>
     <div id="modal" v-show="isOpen">
         <Popup>
-            <template #image >
-                <div class="mb-2 flex space-x-2">
-                    <img :src="AxiosDetail.prodImg" style="width:100px;" alt="picture upload preview">
-                </div>
-            </template>
             <template #name>
                 Name: {{ AxiosDetail.prodName }}
             </template>
@@ -115,7 +110,7 @@ export default {
     bottom:50%;
     left:50%;
     margin-left:-220px;
-    margin-bottom:-240px;
+    margin-bottom:-150px;
     transform: 1s;
     box-sizing: border-box;
 }

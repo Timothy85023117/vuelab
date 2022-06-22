@@ -1,10 +1,7 @@
 <template>
-    <div id="modal">
+    <card id="modal">
         <div>Demo Modal</div>
         <div class="line"> </div>
-         <div>
-            <slot name="image"></slot>
-        </div>
         <p>
             <slot name="title"></slot>
         </p>
@@ -27,12 +24,11 @@
          <button class="btn" @click="CloseModal">
             <slot name="button"></slot>
         </button>
-    </div>
+    </card>
 </template>
 
 <script>
 export default {
-  name: 'MyPopup',
   methods: {
     CloseModal () {
       this.$store.commit('changeClose')

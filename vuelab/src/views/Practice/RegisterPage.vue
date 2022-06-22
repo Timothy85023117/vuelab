@@ -1,59 +1,55 @@
 <template>
-  <div class="practice">
+<div class="practice">
     <h1>Register</h1>
-    <div class="container">
-      <div class="flex">
-        <div class="fiftyWidth"><span class="right">身份證字號</span></div>
-        <Form v-slot="{ errors }">
-        <Field name="field" :rules="identity" v-model="inputIdentity"/>
-
-        <p class="error">{{ errors.field }}</p>
-      </Form>
+      <div class="container">
+          <Form @submit="onSubmit" :validation-schema="schema">
+            <div class="flex">
+                <div class="fiftyWidth"><span class="right">身份證字號</span></div>
+                <Field name="identity" type="email" rules="required" v-model="inputIdentity"/>
+                <ErrorMessage name="identity" class="error"/>
+            </div>
+            <div class="flex">
+                <div class="fiftyWidth"><span class="right">姓名</span></div>
+                <Field name="name" type="text" v-model="inputName"/>
+                <ErrorMessage name="name" class="error"/>
+            </div>
+            <div class="flex">
+                <div class="fiftyWidth"><span class="right">性別</span></div>
+                <Field name="gender" type="radio" value="male" v-model="inputGender"></Field> 男
+                <Field name="gender" type="radio" value="female" v-model="inputGender"></Field> 女
+                <ErrorMessage name="gender" class="error"/>
+            </div>
+            <div class="flex">
+                <div class="fiftyWidth"><span class="right">手機</span></div>
+                <Field name="phone" type="number" :rules="mobile" v-model="inputPhone"/>
+                <ErrorMessage name="phone" class="error"/>
+            </div>
+            <button>Submit</button>
+          </Form>
       </div>
-      <div class="flex">
-        <div class="fiftyWidth"><span class="right">姓名</span></div>
-        <Form v-slot="{ errors }">
-        <Field name="field" :rules="name" v-model="inputName"/>
-
-        <p class="error">{{ errors.field }}</p>
-      </Form>
-      </div>
-      <div class="flex">
-        <div class="fiftyWidth"><span class="right">性別</span></div>
-        <div class="fiftyWidth">
-          <div class="left">
-            <input type="radio" name="fav_language" value="male" />
-            <span>男</span>
-            <input type="radio" name="fav_language" value="female" />
-            <span>女</span>
-          </div>
-        </div>
-      </div>
-      <div class="flex">
-        <div class="fiftyWidth"><span class="right">手機</span></div>
-        <Form v-slot="{ errors }">
-        <Field name="field" :rules="mobile" v-model="inputPhone"/>
-
-        <p class="error">{{ errors.field }}</p>
-      </Form>
-      </div>
-      <button type="submit" :disabled="invalid" @click="postData">送出</button>
-      <button>清除</button>
-    </div>
-  </div>
+</div>
 </template>
--->
 <script>
-import { Field, Form } from 'vee-validate'
+import { Field, Form, ErrorMessage } from 'vee-validate'
+import * as yup from 'yup'
 export default {
   components: {
     Field,
-    Form
+    Form,
+    ErrorMessage
   },
   data () {
+    const schema = yup.object({
+      identity: yup.string().required(() => ('此欄位為必填欄位。')).matches(/^[a-zA-Z]\d{9}$/, '輸入格式錯誤，請重新輸入。'),
+      gender: yup.string().required(() => ('此欄位為必填欄位。')),
+      name: yup.string().required(() => ('此欄位為必填欄位。')).max(30, '輸入格式錯誤，請重新輸入。'),
+      phone: yup.string().required(() => ('此欄位為必填欄位。')).matches(/^(09+\d{8})$/, '輸入格式錯誤，請重新輸入。')
+    })
     return {
+      schema,
       inputIdentity: '',
       inputName: '',
+      inputGender: '',
       inputPhone: ''
     }
   },
@@ -73,8 +69,9 @@ export default {
       if (!/^(09+\d{8})$/.test(value)) return '輸入格式錯誤，請重新輸入。'
       return true
     },
-    postData () {
-      alert(this.inputIdentity + this.inputName + this.inputPhone)
+    onSubmit (values) {
+      // Submit values to API...
+      alert('身份證:' + this.inputIdentity + '姓名:' + this.inputName + '性別:' + this.inputGender + '手機:' + this.inputPhone)
     }
   }
 }
@@ -102,15 +99,17 @@ export default {
   float: right;
 }
 .error{
-    color:rgb(228, 21, 21);
+    color:rgb(240, 64, 64);
     margin:0;
+    display:inline;
 }
 .container {
   margin: 0 300px;
   padding: 20px;
-  background-color: rgb(235, 235, 235);
-  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
   box-sizing: border-box;
+  box-shadow: 0px 0px 50px 20px rgba(97, 97, 97, 0.08);
 }
 .btn {
   width: 100px;
